@@ -12,7 +12,7 @@ Born2beRoot is a system administration project. The goal is to set up a minimal,
 - **Partitioning:** encrypted LVM on `sda5`, with separate logical volumes for `/` (root), `swap` and `/home`. `/boot` stays outside the encrypted volume because the bootloader must read it before decryption.
 - **SSH:** OpenSSH on port 4242, root login disabled.
 - **Firewall:** UFW active at boot, with only port 4242 allowed.
-- **User management:** user `aaldobag` belongs to the `sudo` and `user42` groups. Hostname is `aaldobag42`.
+- **User management:** user `hal-nase` belongs to the `sudo` and `user42` groups. Hostname is `hal-nase42`.
 - **Password policy:** expiry every 30 days, minimum 2 days between changes, warning 7 days before expiry (`/etc/login.defs` and `chage`). Quality rules via `libpam-pwquality`: minimum 10 characters, upper case, lower case and digit required, at most 3 repeated characters, user name not allowed, at least 7 characters different from the previous password.
 - **sudo policy** (`/etc/sudoers.d/sudo_config`): 3 attempts, custom bad-password message, input/output logging in `/var/log/sudo/`, TTY required, restricted `secure_path`.
 - **Services installed:** only `ssh`, `ufw`, `cron`, `apparmor` and `sudo`.
@@ -48,7 +48,7 @@ Born2beRoot is a system administration project. The goal is to set up a minimal,
    @reboot /usr/local/bin/monitoring.sh
    */10 * * * * /usr/local/bin/monitoring.sh
    ```
-6. Connect from the host with `ssh aaldobag@127.0.0.1 -p 4242`.
+6. Connect from the host with `ssh hal-nase@127.0.0.1 -p 4242`.
 7. Signature: with the VM powered off, compute the SHA-1 of the `.vdi` file (for example `certUtil -hashfile born2beroot.vdi sha1` on Windows) and paste it into `signature.txt`.
 
 ## Resources
